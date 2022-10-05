@@ -1,0 +1,75 @@
+.task {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr 1.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--gray-500);
+  box-shadow: 0 0 0 1px var(--gray-400) inset;
+  border-radius: 8px;
+  padding: 1rem;
+
+  .taskCheckbox,
+  .deleteTask {
+    border-radius: 4px;
+    border: none;
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    transition: 150ms ease-out;
+  }
+
+  .taskCheckbox {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.25rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--blue) inset;
+    color: transparent;
+    transition-property: box-shadow, color, background-color;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 0 2px var(--blue-dark) inset;
+    }
+  }
+
+  p {
+    color: var(--gray-100);
+    font-size: 0.875rem;
+    transition: color 150ms ease-out;
+  }
+
+  .deleteTask {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--gray-300);
+    transition-property: background-color, color;
+
+    &:hover {
+      color: var(--danger);
+      background-color: var(--gray-400);
+    }
+  }
+
+  &.completed {
+    .taskCheckbox {
+      box-shadow: none;
+      background-color: var(--purple-dark);
+      color: var(--gray-100);
+
+      &:hover,
+      &:focus {
+        background-color: var(--purple);
+      }
+    }
+
+    p {
+      text-decoration: line-through;
+      color: var(--gray-300);
+    }
+  }
+}
